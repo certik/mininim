@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -ex
+
 gnulib-tool --source-base=gnulib --m4-base=gnulib/m4 \
 --aux-dir=gnulib/build-aux --import calloc-posix dprintf-posix \
 fprintf-posix getopt-posix malloc-posix obstack-printf-posix \
