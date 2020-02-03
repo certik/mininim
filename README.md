@@ -24,16 +24,16 @@ sudo apt-get install automake autoconf gcc make gnulib cmake lua50 \
 sudo apt-get build-dep allegro5
 git clone https://github.com/oitofelix/allegro5.git
 cd allegro5
-cmake
+cmake -DCMAKE_INSTALL_PREFIX=../inst
 make
-sudo make install
+make install
 cd ..
 git clone https://github.com/oitofelix/mininim.git
 cd mininim
 ./bootstrap
-./configure LUA_LIB="-llua50 -llualib50"
+./configure LUA_LIB="-llua50 -llualib50" PKG_CONFIG_PATH=`pwd`/../inst/lib/pkgconfig/
 make
-./mininim
+LD_LIBRARY_PATH=../inst/lib ./mininim
 ```
 
 To build MININIM's documentation you'll need **Texinfo**, **TeX Live**
